@@ -18,6 +18,7 @@ public  abstract  class SplashActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
+        setupSpash();
     }
 
 
@@ -41,4 +42,6 @@ public  abstract  class SplashActivity extends AppCompatActivity {
             }
         }, SPLASH_TIME_OUT);
     }
+
+    abstract void setupSpash();
 }
