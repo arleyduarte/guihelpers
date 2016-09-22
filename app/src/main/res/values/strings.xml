@@ -1,3 +1,4 @@
 <resources>
-
+    <string name="email">Usuario</string>
+    <string name="password">Contraseña</string>
 </resources>
