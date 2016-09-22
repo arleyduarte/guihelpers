@@ -43,5 +43,5 @@ public  abstract  class SplashActivity extends AppCompatActivity {
         }, SPLASH_TIME_OUT);
     }
 
-    abstract void setupSpash();
+    protected abstract void setupSplash();
 }
