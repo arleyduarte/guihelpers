@@ -1,4 +1,4 @@
-package com.amdp.android.guihelpers;
+package com.amdp.android.guihelpers.utils;
 
 
 import android.app.AlertDialog;

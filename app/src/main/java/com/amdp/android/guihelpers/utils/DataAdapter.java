@@ -1,4 +1,4 @@
-package com.amdp.android.guihelpers;
+package com.amdp.android.guihelpers.utils;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -12,6 +12,7 @@ import android.widget.TimePicker;
 
 
 import com.amdp.android.entity.APIEntity;
+import com.amdp.android.guihelpers.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
