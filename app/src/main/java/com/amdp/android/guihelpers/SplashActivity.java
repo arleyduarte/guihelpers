@@ -1,5 +1,6 @@
 package com.amdp.android.guihelpers;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
@@ -23,6 +24,9 @@ public  abstract  class SplashActivity extends AppCompatActivity {
             View decorView = getWindow().getDecorView();
             int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
             decorView.setSystemUiVisibility(uiOptions);
+
+            ActionBar actionBar = getActionBar();
+            actionBar.hide();
         }
         setContentView(R.layout.activity_splash);
         setupSplash();
