@@ -10,8 +10,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public abstract  class LoginActivity extends AppCompatActivity {
+import com.amdp.android.network.ResponseActionDelegate;
+
+public abstract  class LoginActivity extends AppCompatActivity implements ResponseActionDelegate {
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
 
@@ -76,4 +79,8 @@ public abstract  class LoginActivity extends AppCompatActivity {
     }
 
     protected abstract void attemptLogin(String user, String password);
+
+    public void didNotSuccessfully(String message) {
+        Toast.makeText(getBaseContext(), getResources().getString(R.string.invalid_user_password), Toast.LENGTH_LONG).show();
+    }
 }
