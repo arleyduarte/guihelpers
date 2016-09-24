@@ -1,4 +1,10 @@
 <resources>
+    <string name="BASE_SERVICE_URL">http://estudiobbd.com/mineducacion/codeigniter/</string>
+    <string name="PREFS_NAME">PREFS_NAME</string>
+
     <string name="email">Usuario</string>
     <string name="password">Contraseña</string>
+    <string name="memoria">Memoria</string>
+    <string name="camara">Camara</string>
+    <string name="uploading_photo">Subiendo Foto</string>
 </resources>

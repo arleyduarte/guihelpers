@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="action_button">
+        <item name="android:layout_width">@dimen/alert_detail_button_width</item>
+        <item name="android:layout_height">@dimen/alert_detail_button_height</item>
+        <item name="android:background">@drawable/button_round_corner</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+</resources>
