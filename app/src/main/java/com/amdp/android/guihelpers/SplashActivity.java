@@ -7,12 +7,11 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 
-public  abstract  class SplashActivity extends AppCompatActivity {
+public abstract class SplashActivity extends AppCompatActivity {
 
-    private static final long SPLASH_TIME_OUT = 3000;
+    private static final long SPLASH_TIME_OUT = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +25,15 @@ public  abstract  class SplashActivity extends AppCompatActivity {
             decorView.setSystemUiVisibility(uiOptions);
 
             ActionBar actionBar = getActionBar();
-            actionBar.hide();
+            if (actionBar != null)
+                actionBar.hide();
         }
         setContentView(R.layout.activity_splash);
         setupSplash();
     }
 
 
-    protected void showNextActivity(final Class<?> cls){
+    protected void showNextActivity(final Class<?> cls) {
         new Handler().postDelayed(new Runnable() {
 
             /*
