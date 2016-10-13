@@ -1,15 +1,16 @@
 package com.amdp.android.guihelpers;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
-public abstract class SplashActivity extends AppCompatActivity {
+//http://ticons.fokkezb.nl/#result
+public abstract class SplashActivity extends Activity {
 
     private static final long SPLASH_TIME_OUT = 2000;
 
