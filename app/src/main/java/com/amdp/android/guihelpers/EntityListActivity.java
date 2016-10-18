@@ -2,7 +2,10 @@ package com.amdp.android.guihelpers;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,7 +34,9 @@ public class EntityListActivity extends AppCompatActivity {
         // typically, you could just use the standard ListActivity layout.
         setContentView(R.layout.list_activity);
 
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void fillList(final ArrayList<APIEntity> vItems){
@@ -71,5 +76,17 @@ public class EntityListActivity extends AppCompatActivity {
     public void onEntityClick(APIEntity apiEntity){
 
 
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

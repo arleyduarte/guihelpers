@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -18,7 +20,7 @@ import java.util.List;
 /**
  * Created by arley on 9/24/16.
  */
-public class SurveysListActivity extends Activity {
+public class SurveysListActivity extends AppCompatActivity {
     private List<Survey> surveys;
     private List<String> listValues;
     private ListView listView = null;
@@ -33,16 +35,22 @@ public class SurveysListActivity extends Activity {
 
         //text = (TextView) findViewById(R.id.mainText);
 
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         surveys = SurveyBLL.getInstance().getSurveys();
         listValues = new ArrayList<String>();
         for(Survey survey : surveys){
             listValues.add(survey.getName());
         }
 
+        /*
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
-
+*/
 
         QuestionListAdapter myAdapter = new QuestionListAdapter(getApplicationContext(), surveys);
 
@@ -71,5 +79,16 @@ public class SurveysListActivity extends Activity {
         SurveyBLL.getInstance().setSelectedSurvey(surveys.get(position));
         Intent intent = new Intent(this, QuestionsByOneForm.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
