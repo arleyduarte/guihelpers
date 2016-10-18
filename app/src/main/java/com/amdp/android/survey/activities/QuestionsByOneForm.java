@@ -100,8 +100,10 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
             }
         });
 
-        myButton.setBackgroundColor(getResources().getColor(R.color.corporate_color));
-        myButton.setTextColor(Color.WHITE);
+       // myButton.setBackgroundColor(getResources().getColor(R.color.corporate_color));
+        myButton.setBackgroundColor(myButton.getContext().getResources().getColor(R.color.corporate_color));
+
+        //myButton.setTextColor(Color.WHITE);
         _layout.addView(myButton);
     }
 
