@@ -29,7 +29,7 @@ public class GetEntityAPIHandler extends APIResourceHandler {
 
     private String userId = "";
     private static final String TAG = GetEntityAPIHandler.class.getSimpleName();
-    static String errorToShow = "";
+    static String message = "";
 
 
     public GetEntityAPIHandler() {
@@ -59,33 +59,24 @@ public class GetEntityAPIHandler extends APIResourceHandler {
                         entityBLL.add(basicEntity);
                 }
 
-                if (entityBLL.getItems().size() > 0) {
-
-                    getResponseActionDelegate().didSuccessfully("");
-                } else {
-                    getResponseActionDelegate().didNotSuccessfully(errorToShow);
-                }
 
 
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
-                errorToShow = e.getMessage();
+                message = e.getMessage();
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());
-                errorToShow = e.getMessage();
-            } finally {
-                if (errorToShow.length() > 0)
-                    getResponseActionDelegate().didNotSuccessfully(errorToShow);
+                message = e.getMessage();
             }
-
-        } else {
-
-
-            getResponseActionDelegate().didSuccessfully("");
-
 
         }
 
+        postProcess(message);
+
+
+    }
+
+    public void postProcess(String message){
 
     }
 
@@ -104,11 +95,11 @@ public class GetEntityAPIHandler extends APIResourceHandler {
 
             } catch (JSONException e) {
 
-                errorToShow = e.getMessage();
+                message = e.getMessage();
 
                 Log.e(TAG, e.getMessage());
             } catch (NumberFormatException e) {
-                errorToShow = e.getMessage();
+                message = e.getMessage();
                 Log.e(TAG, e.getMessage());
             }
         }
