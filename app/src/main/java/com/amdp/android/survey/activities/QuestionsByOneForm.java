@@ -92,7 +92,8 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
     private void setupQuestion(String question){
         generateForm(question);
         Button myButton = new Button(this);
-        myButton.setText("Siguiente");
+        myButton.setText(getResources().getString(R.string.next));
+
         myButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 showNextQuestion();
