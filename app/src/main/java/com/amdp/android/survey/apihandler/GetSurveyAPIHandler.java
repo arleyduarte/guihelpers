@@ -128,7 +128,7 @@ public class GetSurveyAPIHandler extends APIResourceHandler {
 
     @Override
     public String getServiceURL() {
-        return getContext().getResources().getString(R.string.BASE_SERVICE_URL) + "encuestas";
+        return getContext().getResources().getString(R.string.BASE_SERVICE_URL) + "loginmercy/encuestas";
     }
 
 
