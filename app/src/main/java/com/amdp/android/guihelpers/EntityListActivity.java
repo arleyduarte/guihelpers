@@ -2,6 +2,7 @@ package com.amdp.android.guihelpers;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,7 +17,7 @@ import java.util.List;
  * Created by arley on 10/17/16.
  */
 
-public class EntityListActivity extends Activity {
+public class EntityListActivity extends AppCompatActivity {
 
     private List<APIEntity> items;
     private List<String> listValues;
