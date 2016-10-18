@@ -92,7 +92,13 @@ public class SurveyBLL extends EntityBLL {
 
     public void clear() {
         surveys.clear();
-        Survey.deleteAll(Survey.class);
+
+        try{
+            Survey.deleteAll(Survey.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     private static boolean isSaving = false;
