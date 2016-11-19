@@ -13,5 +13,6 @@
 
     <string name="invalid_user_password">El nombre de usuario y/o la contraseña son incorrectos, por favor, intente de nuevo</string>
     <string name="login">Ingresar</string>
+    <string name="search">Buscar</string>
 
 </resources>

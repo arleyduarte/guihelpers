@@ -33,16 +33,19 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
     private ArrayList<String> splitQuestion = new ArrayList<String>();
     private int questionIndex = 0;
     private JSONArray jsonResponses = new JSONArray();
+    protected  ActionBar actionBar;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         currentSurvey = SurveyBLL.getInstance().getSelectedSurvey();
 
         String su = currentSurvey.getSurvey();
-
+        actionBar.setTitle(currentSurvey.getName());
 
 
         try {
@@ -73,8 +76,7 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
 
 
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         if(!splitQuestion.isEmpty()){
             String question = splitQuestion.get(0);

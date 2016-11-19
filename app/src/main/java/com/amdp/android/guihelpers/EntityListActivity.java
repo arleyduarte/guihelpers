@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.amdp.android.entity.APIEntity;
@@ -26,6 +29,9 @@ public class EntityListActivity extends AppCompatActivity {
     private List<String> listValues;
     private ListView listView = null;
 
+    protected ActionBar actionBar;
+    protected EditText inputSearch;
+    protected ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +40,11 @@ public class EntityListActivity extends AppCompatActivity {
         // typically, you could just use the standard ListActivity layout.
         setContentView(R.layout.list_activity);
 
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        inputSearch = (EditText) findViewById(R.id.input_search);
     }
 
     public void fillList(final ArrayList<APIEntity> vItems){
@@ -54,10 +62,10 @@ public class EntityListActivity extends AppCompatActivity {
 
 
         listView= (ListView)findViewById(R.id.listview);
-        ArrayAdapter<String> itemsAdapter =
+        adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listValues);
         // assign the list adapter
-        listView.setAdapter(itemsAdapter);
+        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener()
@@ -70,6 +78,31 @@ public class EntityListActivity extends AppCompatActivity {
                     }
                 }
         );
+
+
+        // Once user enters a new data in EditText we need to get the text from
+        // it and passing it to array adapter filter.
+        inputSearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2,
+                                      int arg3) {
+                // When user changed the Text
+                EntityListActivity.this.adapter.getFilter().filter(cs);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                                          int arg2, int arg3) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
 
     }
 

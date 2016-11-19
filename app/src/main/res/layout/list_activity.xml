@@ -5,12 +5,20 @@
     android:orientation="vertical"
     android:background="@android:color/white">
 
+    <!-- Editext for Search -->
+    <EditText android:id="@+id/input_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search"
+        android:inputType="textVisiblePassword"/>
+
+
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/listview"
-        android:divider="@android:color/darker_gray"
+        android:divider="@color/list_divider_color"
         android:textSize="@dimen/list_main_text_size"
         android:textColor="@color/text_list_color"
         android:dividerHeight="1px"></ListView>

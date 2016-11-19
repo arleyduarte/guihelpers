@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="text_list_color">#808284</color>
+    <color name="list_divider_color">#808284</color>
     <color name="corporate_color">#ffff</color>
+
 </resources>
