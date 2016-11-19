@@ -52,23 +52,12 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="26dp"
-            android:text="Ingresar"
+            android:text="@string/login"
             android:textColor="@android:color/white"
             android:textSize="14dp"
             android:layout_below="@+id/password"
             android:layout_centerHorizontal="true"
             android:textStyle="bold" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
-        android:background="@android:color/white">
-
-
-
-
     </RelativeLayout>
 
 

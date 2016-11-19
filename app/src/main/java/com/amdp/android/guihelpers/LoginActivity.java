@@ -1,5 +1,6 @@
 package com.amdp.android.guihelpers;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 
 import com.amdp.android.network.ResponseActionDelegate;
 
-public abstract  class LoginActivity extends AppCompatActivity implements ResponseActionDelegate {
+public abstract  class LoginActivity extends Activity implements ResponseActionDelegate {
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
 
