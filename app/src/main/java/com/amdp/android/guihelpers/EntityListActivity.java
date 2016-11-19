@@ -47,6 +47,8 @@ public class EntityListActivity extends AppCompatActivity {
         inputSearch = (EditText) findViewById(R.id.input_search);
     }
 
+
+
     public void fillList(final ArrayList<APIEntity> vItems){
 
         items = vItems;

@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.amdp.android.entity.APIEntity;
+import com.amdp.android.entity.BasicEntityBLL;
+import com.amdp.android.guihelpers.EntityListActivity;
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.survey.entities.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
@@ -20,75 +23,37 @@ import java.util.List;
 /**
  * Created by arley on 9/24/16.
  */
-public class SurveysListActivity extends AppCompatActivity {
+public class SurveysListActivity extends EntityListActivity {
     private List<Survey> surveys;
-    private List<String> listValues;
-    private ListView listView = null;
+
+
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // We'll define a custom screen layout here (the one shown above), but
-        // typically, you could just use the standard ListActivity layout.
-        setContentView(R.layout.surveys_list_activity);
-
-        //text = (TextView) findViewById(R.id.mainText);
-
-
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+    public void onResume(){
+        super.onResume();
 
         surveys = SurveyBLL.getInstance().getSurveys();
-        listValues = new ArrayList<String>();
+        ArrayList<APIEntity> vItems= new ArrayList<APIEntity>();
         for(Survey survey : surveys){
-            listValues.add(survey.getName());
+            vItems.add(survey);
         }
+        fillList(vItems);
 
-        /*
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-*/
+        //android.support.v7.app.ActionBar actionBar = this.getSupportActionBar();
+        actionBar.setTitle("Instituciones Educativas");
 
-        QuestionListAdapter myAdapter = new QuestionListAdapter(getApplicationContext(), surveys);
-
-        listView= (ListView)findViewById(R.id.listview);
-
-        // assign the list adapter
-        listView.setAdapter(myAdapter);
-
-        listView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener()
-                {
-                    @Override
-                    public void onItemClick(AdapterView<?> arg0, View view,
-                                            int position, long id) {
-
-                        SurveyBLL.getInstance().setSelectedSurvey(surveys.get(position));
-                        showNext(position);
-                    }
-                }
-        );
-
+        //getSupportActionBar().show();
 
     }
 
-    private void showNext(int position){
-        SurveyBLL.getInstance().setSelectedSurvey(surveys.get(position));
+
+    public void onEntityClick(APIEntity apiEntity){
+
+        SurveyBLL.getInstance().setSelectedSurvey((Survey)apiEntity);
         Intent intent = new Intent(this, QuestionsByOneForm.class);
         startActivity(intent);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                this.finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
 }
