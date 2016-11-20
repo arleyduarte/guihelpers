@@ -26,7 +26,7 @@ import java.util.List;
 public class SurveysListActivity extends EntityListActivity {
     private List<Survey> surveys;
 
-
+    protected String surveysTitle = "";
 
 
     @Override
@@ -41,7 +41,13 @@ public class SurveysListActivity extends EntityListActivity {
         fillList(vItems);
 
         //android.support.v7.app.ActionBar actionBar = this.getSupportActionBar();
-        actionBar.setTitle("Instituciones Educativas");
+        String title = surveysTitle;
+        if (surveysTitle.isEmpty()){
+            title = getResources().getString(R.string.surveys_tile);
+        }
+
+
+        actionBar.setTitle(title);
 
         //getSupportActionBar().show();
 

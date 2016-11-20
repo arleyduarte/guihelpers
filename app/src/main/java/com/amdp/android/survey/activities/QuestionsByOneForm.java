@@ -94,7 +94,7 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
     private void setupQuestion(String question){
         generateForm(question);
         Button myButton = new Button(this);
-        myButton.setText(getResources().getString(R.string.next));
+        myButton.setText(getResources().getString(R.string.next_question));
 
         myButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -104,7 +104,7 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
 
        // myButton.setBackgroundColor(getResources().getColor(R.color.corporate_color));
         myButton.setBackgroundColor(myButton.getContext().getResources().getColor(R.color.corporate_color));
-
+        myButton.setTextColor(myButton.getContext().getResources().getColor(R.color.corporate_text_color));
         //myButton.setTextColor(Color.WHITE);
         _layout.addView(myButton);
     }
