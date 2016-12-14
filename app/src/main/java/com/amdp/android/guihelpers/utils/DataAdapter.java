@@ -56,10 +56,10 @@ public class DataAdapter {
         } else {
             names = getNames(vItems, defaultItem);
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, names);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.spinner_item, names);
 
 
-        adapter.setDropDownViewResource(R.layout.multiline_spinner_dropdown_item);
+        //adapter.setDropDownViewResource(R.layout.multiline_spinner_dropdown_item);
 
         //ArrayAdapter<String> adapter = new CustomArrayAdapter<String>(context, names);
 
