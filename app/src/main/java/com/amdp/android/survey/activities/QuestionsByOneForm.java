@@ -250,6 +250,8 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
                     Send(path);
 
 
+                    Toast.makeText(getApplicationContext(), "Su archivo se esta subiendo: "+path, Toast.LENGTH_LONG).show();
+
                     // Get the file instance
                     // File file = new File(path);
                     // Initiate the upload
