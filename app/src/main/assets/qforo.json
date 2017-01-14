@@ -1,0 +1,693 @@
+[{
+    "meta": {
+        "type": "meta",
+        "name": "Music Album"
+    },
+    "Relación del encuestado en la familia": {
+        "type": "integer",
+        "id": "0",
+        "default": "0",
+        "priority": "0",
+        "options": {
+            "0": "",
+            "1": "Madre/Padre",
+            "2": "Hijo / Hija",
+            "3": "Abuelo / Abuela",
+            "4": "Tío / Tía",
+            "5": "No Pariente",
+            "6": "No aplica",
+            "7": "Otro"
+        }
+    },
+    "Tipo de Hogar (Situación)": {
+        "type": "integer",
+        "id": "1",
+        "default": "0",
+        "priority": "1",
+        "options": {
+                    "0": "",
+            "1": "Vulnerable",
+            "2": "Vulnerable Desplazado",
+            "3": "Desplazado"
+        }
+    },
+    "Tipo de desplazamiento": {
+        "type": "integer",
+        "id": "2",
+        "default": "0",
+        "priority": "2",
+        "options": {
+                    "0": "",
+            "1": "Desplazamiento Individual",
+            "2": "Desplazamiento Masivo",
+            "3": "Confinamiento",
+            "4": "No aplica (VULNERABLE)"
+        }
+    },
+    "¿De dónde Fueron desplazados?: municipio. (NO DILIGENCIAR PARA POBLACIÓN VULNERABLE)": {
+        "type": "integer",
+        "id": "3",
+        "default": "0",
+        "priority": "3",
+        "options": {
+                    "0": "",
+            "1": "Desplazamiento Individual",
+            "2": "Desplazamiento Masivo",
+            "3": "Confinamiento",
+            "4": "No aplica (VULNERABLE)"
+        }
+    },
+    "¿De qué zona fueron desplazados?": {
+        "type": "integer",
+        "id": "4",
+        "default": "0",
+        "priority": "4",
+        "options": {
+                    "0": "",
+            "1": "Rural",
+            "2": "Urbana",
+            "3": "No aplica (VULNERABLE)"
+        }
+    },
+    "Municipio donde habita actualmente": {
+        "type": "integer",
+        "id": "5",
+        "default": "0",
+        "priority": "5",
+        "options": {
+                    "0": "",
+            "1": "Puerto Asís",
+            "2": "Mocoa"
+        }
+    },
+    "Barrio o vereda donde reside actualmente": {
+        "type": "string",
+        "id": "6",
+        "default": "",
+        "priority": "6"
+    },
+    "Dirección donde reside actualmente": {
+        "type": "string",
+        "id": "7",
+        "default": "",
+        "priority": "7"
+    },
+    "Zona donde reside actualmente": {
+        "type": "integer",
+        "id": "8",
+        "default": "0",
+        "priority": "8",
+        "options": {
+                    "0": "",
+            "1": "Rural",
+            "2": "Urbana"
+        }
+    },
+    "Territorio donde usted reside actualmente": {
+        "type": "integer",
+        "id": "9",
+        "default": "0",
+        "priority": "9",
+        "options": {
+                    "0": "",
+            "1": "Indígena",
+            "2": "Afro",
+            "3": "No aplica"
+        }
+    },
+    "Segundo teléfono de contacto": {
+        "type": "string",
+        "id": "10",
+        "default": "",
+        "priority": "10"
+    },
+    "SOLO PARA DESPLAZADOS: ¿Usted y su hogar están incluidos en el Registro Único de Víctimas (de desplazados)?": {
+        "type": "integer",
+        "id": "11",
+        "default": "0",
+        "priority": "11",
+        "options": {
+                        "0": "",
+            "1": "Si",
+            "2": "No",
+            "3": "No aplica (VULNERABLE)"
+        }
+    },
+    "SOLO PARA DESPLAZADOS: ¿Qué persona en su hogar está registrada en el Registro Único de Víctimas?, Nombres y Apellidos:": {
+        "type": "string",
+        "id": "12",
+        "default": "",
+        "priority": "12"
+    },
+    "SOLO PARA DESPLAZADOS: ¿Qué persona en su hogar está registrada en el Registro Único de Víctimas?, No de identificacion:": {
+        "type": "integer",
+        "id": "13",
+        "default": "",
+        "priority": "13"
+    },
+    "SOLO PARA DESPLAZADOS: ¿Hace cuánto usted y su familia llegaron al municipio?": {
+        "type": "integer",
+        "id": "14",
+        "default": "0",
+        "priority": "14",
+        "options": {
+                        "0": "",
+            "1": "0-3 meses",
+            "2": "4 meses a 1 año",
+            "3": "Más de un año",
+            "4": "No aplica (VULNERABLE)"
+        }
+    },
+    "SOLO PARA DESPLAZADOS: Espeficique mes y año en el cual llegaron al Municipio": {
+        "type": "date",
+        "id": "15",
+        "default": "",
+        "priority": "15",
+        "hint": "Ejemplo: 10/30/1999"
+    },
+    "SOLO PARA DESPLAZADOS: ¿Cuál fue el motivo de su desplazamiento?": {
+        "type": "integer",
+        "id": "16",
+        "default": "0",
+        "priority": "16",
+        "multiple_options": {
+                        "0": "",
+            "1": "Fumigaciones",
+            "2": "Muerte de un familiar por grupos armados",
+            "3": "Amenazas de grupos armados",
+            "4": "Querían reclutar a algún familiar",
+            "5": "Mina antipersonal",
+            "6": "Actos terroristas/ Atentado terrorista/combates",
+            "7": "Los sacaron de su vivienda grupos armados",
+            "8": "Enfrentamientos/hostigamientos, Masacres",
+            "9": "Intento de Secuestro/ secuestro de algún familiar",
+            "10": "Desaparición forzada",
+            "11": "Reclutamiento de un familiar",
+            "12": "Actividades relacionadas de grupos armados",
+            "13": "No responde",
+            "14": "Otro ¿Cuál?"
+        }
+    },
+    "SOLO PARA DESPLAZADOS: ¿Qué grupo armado?": {
+        "type": "integer",
+        "id": "17",
+        "default": "0",
+        "priority": "17",
+        "multiple_options": {
+                    "0": "",
+            "1": "Guerrilla",
+            "2": "Paramilitares",
+            "3": "Bandas criminales",
+            "4": "Fuerza pública"
+        }
+    },
+    "SOLO PARA DESPLAZADOS: ¿Ha recibido ayudas de alguna entidad?": {
+        "type": "integer",
+        "id": "18",
+        "default": "0",
+        "priority": "18",
+        "options": {
+            "0": "Si",
+            "1": "No"
+        }
+    },
+    "SOLO PARA DESPLAZADOS: ¿Qué tipo de Ayuda?": {
+        "type": "integer",
+        "id": "19",
+        "default": "0",
+        "priority": "19",
+        "options": {
+            "0": "Emergencia",
+            "1": "Inmediata",
+            "2": "No aplica (VULNERABLE)"
+        }
+    },
+    "SOLO PARA DESPLAZADOS: ¿Cuántas veces ha recibido ayuda?": {
+        "type": "integer",
+        "id": "20",
+        "default": "",
+        "priority": "20"
+    },
+    "SOLO PARA DESPLAZADOS: ¿Qué ayuda recibió?": {
+        "type": "integer",
+        "id": "21",
+        "default": "0",
+        "priority": "21",
+        "multiple_options": {
+            "0": "Alimentos",
+            "1": "Kit aseo",
+            "2": "Kit cocina",
+            "3": "Subsidio de arriendo",
+            "4": "Subsidio de vivienda",
+            "5": "Otro"
+        }
+    },
+    "SOLO PARA DESPLAZADOS: ¿Qué organización le brindó la ayuda?": {
+        "type": "integer",
+        "id": "22",
+        "default": "0",
+        "priority": "22",
+        "multiple_options": {
+            "0": "Unidad de Víctimas",
+            "1": "Alcaldía",
+            "2": "Gobernación",
+            "3": "CICR",
+            "4": "Cruz Roja Colombiana",
+            "5": "OIM",
+            "6": "Otro ¿Cuál?"
+        }
+    },
+    "¿Cúantas personas conforman su hogar actualmente?": {
+        "type": "integer",
+        "id": "23",
+        "default": "",
+        "priority": "23"
+    },
+    "Condición de la Familia": {
+        "type": "integer",
+        "id": "24",
+        "default": "0",
+        "priority": "24",
+        "options": {
+            "0": "Prioritaria",
+            "1": "No Prioritaria"
+        }
+    },
+    "Mencione tres (3) causas por las cuales una persona y/o familia puede ser víctima de desplazamiento": {
+        "type": "integer",
+        "id": "25",
+        "default": "0",
+        "priority": "25",
+        "multiple_options": {
+            "0": "Salen de su hogar por enfrentamientos, actos terroristas, atentados, combates o hostigamientos de grupos armado",
+            "1": "Salen de su hogar por amenazas de grupos armados",
+            "2": "Salen de su hogar por presencia o afectación de Minas Antipersonales",
+            "3": "Salen de su hogar por amenaza de reclutamiento",
+            "4": "Salen de su hogar por homicidio o masacre de familiares",
+            "5": "Salen de su hogar por despojo o abandono forzado de tierra/s",
+            "6": "Salen de su hogar por desaparición forzada de un familiar",
+            "7": "Salen de su hogar por agresiones sexuales de un grupo armado",
+            "8": "Salen de su hogar por secuestro de un familiar por un grupo armado",
+            "9": "No sabe/ No responde"
+        }
+    },
+    "Mencione las instituciones en las que puede declarar e informar si es víctima de desplazamiento": {
+        "type": "integer",
+        "id": "26",
+        "default": "0",
+        "priority": "26",
+        "multiple_options": {
+            "0": "Personería",
+            "1": "Defensoría",
+            "2": "Procuraduría",
+            "3": "No sabe/ No responde"
+        }
+    },
+    "Mencione mínimo tres (3) instituciones que hacen parte de la Ruta de Atención a Víctimas de Desplazamiento y de acceso a la restitución de tierras": {
+        "type": "integer",
+        "id": "27",
+        "default": "0",
+        "priority": "27",
+        "multiple_options": {
+            "0": "Personería",
+            "1": "Defensoría del Pueblo",
+            "2": "Procuraduría",
+            "3": "Alcaldía Municipal",
+            "4": "ICBF",
+            "5": "Policía Nacional",
+            "6": "Hospitales y Centros de Salud",
+            "7": "Centros y Puntos de Atención a Víctimas",
+            "8": "Unidad de Víctimas",
+            "9": "Unidad de Restitución de Tierras  Fiscalía",
+            "10": "Registraduria Nacional del estado civil",
+            "11": "No sabe/ No responde"
+        }
+    },
+    "Mencione al menos tres (3) derechos que tienen las personas víctimas de Desplazamiento": {
+        "type": "integer",
+        "id": "28",
+        "default": "0",
+        "priority": "28",
+        "multiple_options": {
+            "0": "Salud",
+            "1": "Educación",
+            "2": "Atención Humanitaria",
+            "3": "Atención Psicológica y médica",
+            "4": "Restitución de Tierras",
+            "5": "Garantías de no repetición",
+            "6": "No sabe/ no responde"
+        }
+    },
+    "Mencione tres acciones con las cuales usted pueda reclamar sus derechos.": {
+        "type": "integer",
+        "id": "29",
+        "default": "0",
+        "priority": "29",
+        "multiple_options": {
+            "0": "Tutela",
+            "1": "Derecho de petición",
+            "2": "Acciones populares",
+            "3": "No sabe/ no responde"
+        }
+    },
+    "¿Sabe usted que es el Derecho a la Restitución de Tierras?": {
+        "type": "integer",
+        "id": "30",
+        "default": "0",
+        "priority": "30",
+        "options": {
+            "0": "Gobierno regala tierras a desplazados",
+            "1": "Gobierno subsidia compra de tierras a desplazados",
+            "2": "Gobierno devuelve tierras despojadas o abandonadas a las victimas",
+            "3": "No sabe/ no responde"
+        }
+    },
+    "¿Qué entidad se encarga de garantizar el derecho a la restitución de tierras?": {
+        "type": "integer",
+        "id": "31",
+        "default": "0",
+        "priority": "31",
+        "options": {
+            "0": "Defensoría de Pueblo",
+            "1": "Alcaldía Municipal",
+            "2": "No sabe/ no responde"
+        }
+    },
+    "La violencia de género es:": {
+        "type": "integer",
+        "id": "32",
+        "default": "0",
+        "priority": "32",
+        "options": {
+            "0": "Cuando se presenta una agresión por el hecho de ser hombre o mujer",
+            "1": "Cuando  discuten los vecinas",
+            "2": "No sabe/ no responde"
+        }
+    },
+    "¿Cuándo una persona es víctima de humillaciones, golpes, acoso, retención de pertenencias, que tipos de violencias están ocurriendo?": {
+        "type": "integer",
+        "id": "33",
+        "default": "0",
+        "priority": "33",
+        "multiple_options": {
+            "0": "Violencia sexual",
+            "1": "Violencia física",
+            "2": "Violencia Económica",
+            "3": "Violencia Psicológica",
+            "4": "No sabe/ no responde"
+        }
+    },
+    "¿La violencia basada en género es un delito?": {
+        "type": "integer",
+        "id": "34",
+        "default": "0",
+        "priority": "34",
+        "multiple_options": {
+            "0": "Si",
+            "1": "No",
+            "2": "No sabe/ no responde"
+        }
+    },
+    "Mencione al menos tres derechos que tiene una mujer cuando es víctima de la violencia de género?": {
+        "type": "integer",
+        "id": "36",
+        "default": "0",
+        "priority": "37",
+        "multiple_options": {
+            "0": "ICBF",
+            "1": "Comisaría de Familia",
+            "2": "Casa de Justicia",
+            "3": "Hospital",
+            "4": "Policía",
+            "5": "Instituciones educativas",
+            "6": "Personería",
+            "7": "SIJIN",
+            "8": "CTI",
+            "9": "Fiscalía",
+            "10": "Cabildos indígenas",
+            "11": "Medicina Legal",
+            "12": "Defensoría",
+            "13": "Otra",
+            "14": "No sabe no responde"
+        }
+    },
+    "¿Ha sentido que cuando está preocupado o tiene algún problema, aparecen dolores fuertes en alguna parte de su cuerpo?": {
+        "type": "integer",
+        "id": "37",
+        "default": "0",
+        "priority": "37",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Se ha sentido cansado, agotado, o sin ánimos para realizar sus actividades diarias?": {
+        "type": "integer",
+        "id": "38",
+        "default": "0",
+        "priority": "38",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Se ha asustado o ha tenido miedo sin motivo alguno?": {
+        "type": "integer",
+        "id": "39",
+        "default": "0",
+        "priority": "39",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Ha tenido sensación de ahogo y/o opresión en el pecho, cuando tiene alguna preocupación?": {
+        "type": "integer",
+        "id": "40",
+        "default": "0",
+        "priority": "40",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Se le dificulta hacer amigos?": {
+        "type": "integer",
+        "id": "41",
+        "default": "0",
+        "priority": "41",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Ha sentido miedo de que las personas que se encuentran a su alrededor le puedan hacer daño?": {
+        "type": "integer",
+        "id": "42",
+        "default": "0",
+        "priority": "42",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Siente que es capaz de tomar sus decisiones, o alguien tiene q hacerlo por usted?": {
+        "type": "integer",
+        "id": "43",
+        "default": "0",
+        "priority": "43",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Llora con facilidad?": {
+        "type": "integer",
+        "id": "44",
+        "default": "0",
+        "priority": "44",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Siente que ante sus dificultades, su vida no tiene sentido?": {
+        "type": "integer",
+        "id": "45",
+        "default": "0",
+        "priority": "45",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Tiene pensamientos negativos con facilidad?": {
+        "type": "integer",
+        "id": "46",
+        "default": "0",
+        "priority": "46",
+        "options": {
+            "0": "Nunca",
+            "1": "Algunas veces",
+            "2": "Casi Siempre",
+            "3": "Siempre"
+        }
+    },
+    "¿Actualmente, usted es empleado/empleada o tiene en un negocio propio?": {
+        "type": "integer",
+        "id": "47",
+        "default": "0",
+        "priority": "47",
+        "options": {
+            "0": "Empleado(a)",
+            "1": "Negocio propio",
+            "2": "Desempleado (a)"
+        }
+    },
+    "¿A qué se dedicaba antes del desplazamiento?": {
+        "type": "integer",
+        "id": "48",
+        "default": "0",
+        "priority": "48",
+        "options": {
+            "0": "Venta de comidas",
+            "1": "Elaboración y venta de artesanías",
+            "2": "Venta por catálogos",
+            "3": "Agricultura",
+            "4": "Confecciones",
+            "5": "Peluquería y relacionados",
+            "6": "Otra cuál?",
+            "7": "Comercialización de ropa y otros artículos",
+            "8": "Ama de casa",
+            "9": "Sector construcción",
+            "10": "Moto taxi",
+            "11": "Desempleado (a)"
+        }
+    },
+    "Cuál es la actividad económica en la que trabaja)?": {
+        "type": "integer",
+        "id": "49",
+        "default": "0",
+        "priority": "49",
+        "options": {
+            "0": "Venta de comidas",
+            "1": "Elaboración y venta de artesanías",
+            "2": "Venta por catálogos",
+            "3": "Agricultura",
+            "4": "Confecciones",
+            "5": "Peluquería y relacionados",
+            "6": "Otra cuál?",
+            "7": "Comercialización de ropa y otros artículos",
+            "8": "Ama de casa",
+            "9": "Sector construcción",
+            "10": "Moto taxi",
+            "11": "Desempleado (a)"
+        }
+    },
+    "¿Sabe usted cómo desarrollar un plan de negocio?": {
+        "type": "integer",
+        "id": "50",
+        "default": "0",
+        "priority": "50",
+        "options": {
+            "0": "Si",
+            "1": "No"
+        }
+    },
+    "Usted ha aprendido una nueva habilidad durante el último año?": {
+        "type": "integer",
+        "id": "51",
+        "default": "0",
+        "priority": "51",
+        "options": {
+            "0": "Si",
+            "1": "No"
+        }
+    },
+    "Mencione tres elementos para llevar la contabilidad de su negocio": {
+        "type": "integer",
+        "id": "52",
+        "default": "0",
+        "priority": "52",
+        "multiple_options": {
+            "0": "Registro de ingresos (entradas)",
+            "1": "Registro de salidas (Salidas)",
+            "2": "Registro de ganancias del negocio",
+            "3": "Registro de créditos",
+            "4": "Registro de cuentas por pagar (deudas)",
+            "5": "No sabe no responde"
+        }
+    },
+    "¿Cuáles de las siguientes opciones pueden ser consideras causas de discriminación?": {
+        "type": "integer",
+        "id": "53",
+        "default": "0",
+        "priority": "53",
+        "multiple_options": {
+            "0": "Por sexo",
+            "1": "Por edad",
+            "2": "Por ser de otro país",
+            "3": "Estrato socioeconómico",
+            "4": "Por estar en situación de discapacidad",
+            "5": "Por raza",
+            "6": "Por apariencia física",
+            "7": "Por creencias religiosas diferentes",
+            "8": "Estado de embarazo",
+            "9": "Otra",
+            "10": "Por ser parte de la comunidad LGTBI (Lesbianas, Gay, Transexuales, Bisexuales e intersexuales)",
+            "11": "No sabe no responde"
+        }
+    },
+    "¿En el momento de buscar trabajo siente que ha sido discriminado por alguno de los siguientes motivos? (LEER LAS OPCIONES DE RESPUESTA AL ENCUESTADO)": {
+        "type": "integer",
+        "id": "54",
+        "default": "0",
+        "priority": "54",
+        "multiple_options": {
+            "0": "Por estar en situación de desplazamiento",
+            "1": "Por ser parte de un grupo étnico (Afro, indígena, rom, raizal)",
+            "2": "Por ser mujer",
+            "3": "Por ser hombre",
+            "4": "Por ser madre cabeza de hogar",
+            "5": "Por ser líder de organización de base",
+            "6": "Por su situación de discapacidad",
+            "7": "Por ser parte de la comunidad LGTBI (Lesbianas, Gay, Transexuales, Bisexuales e intersexuales)",
+            "8": "Por estar en situación de embarazo",
+            "9": "Por su edad",
+            "10": "Nunca se ha sentido discriminado",
+            "11": "Otra"
+        }
+    },
+    "¿Qué actitud ha tomado usted frente a una situación donde se ha visto discriminado? (LEER LAS OPCIONES DE RESPUESTA AL ENCUESTADO)": {
+        "type": "integer",
+        "id": "55",
+        "default": "0",
+        "priority": "55",
+        "multiple_options": {
+            "0": "Dar a conocer a una institución (Denunciar)",
+            "1": "Hacerle saber su inconformidad sobre su acción discriminatoria",
+            "2": "Explicarle a la persona que lo está haciendo sobre la importancia de no discriminar",
+            "3": "Reaccionar de manera violenta",
+            "4": "Ninguna de las anteriores",
+            "5": "Nunca ha sido discriminado"
+        }
+    }
+}]

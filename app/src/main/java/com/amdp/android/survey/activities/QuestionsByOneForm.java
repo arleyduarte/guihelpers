@@ -1,9 +1,13 @@
 package com.amdp.android.survey.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +15,11 @@ import android.widget.Toast;
 
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.guihelpers.formgenerator.FormActivity;
+import com.amdp.android.guihelpers.photo.ContextPicker;
 import com.amdp.android.guihelpers.photo.IPhotoResultDelegate;
 import com.amdp.android.guihelpers.photo.PhotoManager;
+import com.amdp.android.guihelpers.utils.FileUtils;
+import com.amdp.android.network.MultipartLargeUtility;
 import com.amdp.android.network.ResponseActionDelegate;
 import com.amdp.android.survey.apihandler.RaiseSurveyAPIHandler;
 import com.amdp.android.survey.entities.Survey;
@@ -24,13 +31,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 
 public class QuestionsByOneForm extends FormActivity implements ResponseActionDelegate, IPhotoResultDelegate {
 
+    private static final String TAG = "QuestionsByOneForm";
     private Survey currentSurvey;
-    private ArrayList<String> splitQuestion = new ArrayList<String>();
+    private ArrayList<Question> splitQuestion = new ArrayList<Question>();
     private int questionIndex = 0;
     private JSONArray jsonResponses = new JSONArray();
     protected  ActionBar actionBar;
@@ -39,8 +52,14 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ContextPicker.getInstance().setPhotoResultDelegate(this);
+        ContextPicker.getInstance().setPickFileResultDelegate(this);
+
+
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+
 
         currentSurvey = SurveyBLL.getInstance().getSelectedSurvey();
 
@@ -48,6 +67,8 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
         actionBar.setTitle(currentSurvey.getName());
 
 
+
+        ArrayList<Question> auxQA = new ArrayList<Question>();
         try {
             String name;
             JSONObject schema  = new JSONObject( su );
@@ -62,11 +83,12 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
                 if (name.equals(SCHEMA_KEY_META)) continue;
 
                 property = schema.getJSONObject(name);
+                int priority = property.getInt("priority");
                 ja.put(property);
 
 
                 String s = surveyJsonAdapter(name, property.toString());
-                splitQuestion.add(s);
+                splitQuestion.add(new Question(s,priority));
 
             }
 
@@ -75,11 +97,24 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
         }
 
 
+        /*
+        Question[] questions = new Question[splitQuestion.size()];
+
+        int index = 0;
+        for(Question q1 : auxQA){
+
+
+            questions[index]= q1;
+            index++;
+        }*/
+
+        Collections.sort(splitQuestion, new PriorityQuestionComparator());
+
 
 
 
         if(!splitQuestion.isEmpty()){
-            String question = splitQuestion.get(0);
+            String question = ((Question)splitQuestion.get(0)).getQuestion();
             setupQuestion(question);
         }
 
@@ -114,7 +149,8 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
 
         questionIndex++;
         if(splitQuestion.size() > questionIndex){
-            String question = splitQuestion.get(questionIndex);
+
+            String question = ((Question)splitQuestion.get(questionIndex)).getQuestion();
             setupQuestion(question);
         }
 
@@ -173,5 +209,88 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
     @Override
     public void takeImageFromSD() {
         finish();
+    }
+
+
+
+    @Override
+    public void showFileChooser(){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("*/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+
+        try {
+            startActivityForResult(
+                    Intent.createChooser(intent, "Select a File to Upload"),
+                    FILE_SELECT_CODE);
+        } catch (android.content.ActivityNotFoundException ex) {
+            // Potentially direct the user to the Market with a Dialog
+            Toast.makeText(this, "Please install a File Manager.",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private static final int FILE_SELECT_CODE = 0;
+
+    private String pickedFileName = "";
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case FILE_SELECT_CODE:
+                if (resultCode == RESULT_OK) {
+                    // Get the Uri of the selected file
+                    Uri uri = data.getData();
+
+                    Log.d(TAG, "File Uri: " + uri.toString());
+                    // Get the path
+                    String path = FileUtils.getPath(this, uri);
+                    Log.d(TAG, "File Path: " + path);
+
+                    Send(path);
+                    pickedFileName = path;
+
+                    // Get the file instance
+                    // File file = new File(path);
+                    // Initiate the upload
+                }
+                break;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void Send(final String path){
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try  {
+                    boolean useCSRF = true;
+                    try {
+
+                        MultipartLargeUtility multipart = new MultipartLargeUtility("http://zyght.com/upload.php", "UTF-8",useCSRF);
+
+                        multipart.addFormField("param1","value");
+
+                        multipart.addFilePart("file",new File(path));
+                        List<String> response = multipart.finish();
+                        Log.w(TAG,"SERVER REPLIED:");
+                        for(String line : response) {
+                            Log.w(TAG, "Upload Files Response:::" + line);
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
+    }
+
+    public String getPickedFileName(){
+        return pickedFileName;
     }
 }

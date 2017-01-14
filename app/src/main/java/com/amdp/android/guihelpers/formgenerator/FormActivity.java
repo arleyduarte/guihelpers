@@ -22,19 +22,23 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.LinearLayout.LayoutParams;
 
+import com.amdp.android.guihelpers.photo.IPickFileResultDelegate;
+
 /**
  * FormActivity allows you to create dynamic form layouts based upon a json schema file. 
  * This class should be sub-classed. 
  * 
  * @author Jeremy Brown
  */
-public abstract class FormActivity extends AppCompatActivity
+public abstract class FormActivity extends AppCompatActivity implements IPickFileResultDelegate
 {
 	public static String SCHEMA_KEY_TYPE		= "type";
 	public static String SCHEMA_KEY_BOOL 		= "boolean";
 	public static String SCHEMA_KEY_INT  		= "integer";
     public static String SCHEMA_KEY_DATE 		= "date";
 	public static String SCHEMA_KEY_STRING 		= "string";
+	public static String SCHEMA_KEY_FILE 		= "file";
+	public static String SCHEMA_KEY_PHOTO 		= "photo";
 	public static String SCHEMA_KEY_PRIORITY	= "priority";
 	public static String SCHEMA_KEY_TOGGLES		= "toggles";
 	public static String SCHEMA_KEY_DEFAULT		= "default";
@@ -360,6 +364,14 @@ public abstract class FormActivity extends AppCompatActivity
 
 			if( type.equals( FormActivity.SCHEMA_KEY_BOOL ) ){
 				return new FormCheckBox( this, name );
+			}
+
+			if( type.equals( FormActivity.SCHEMA_KEY_FILE ) ){
+				return new FormPickFile( this, name );
+			}
+
+			if( type.equals( FormActivity.SCHEMA_KEY_PHOTO ) ){
+				return new FormPickPhoto( this, name );
 			}
 			
 			if( type.equals(  FormActivity.SCHEMA_KEY_INT ) )

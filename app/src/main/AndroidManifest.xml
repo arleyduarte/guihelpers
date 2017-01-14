@@ -3,8 +3,24 @@
     package="com.amdp.android.guihelpers">
 
     <application>
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name="com.amdp.android.survey.activities.QuestionsByOneForm" android:theme="@style/Theme.AppCompat"/>
+        <activity android:name="com.amdp.android.survey.activities.SurveysListActivity" android:theme="@style/Theme.AppCompat"/>
+
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".EmptyActivity"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
