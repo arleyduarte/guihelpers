@@ -268,7 +268,7 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
                     boolean useCSRF = true;
                     try {
 
-                        MultipartLargeUtility multipart = new MultipartLargeUtility("http://zyght.com/upload.php", "UTF-8",useCSRF);
+                        MultipartLargeUtility multipart = new MultipartLargeUtility(getApplication().getResources().getString(R.string.UPLOAD_FILE_URL), "UTF-8",useCSRF);
 
                         multipart.addFormField("fileUUID",pickedFileUUID);
 
