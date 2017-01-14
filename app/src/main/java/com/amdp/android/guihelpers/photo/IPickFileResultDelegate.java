@@ -6,5 +6,5 @@ package com.amdp.android.guihelpers.photo;
 
 public interface IPickFileResultDelegate {
     void showFileChooser();
-    String getPickedFileName();
+    String getPickedFileUUID();
 }

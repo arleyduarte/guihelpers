@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 
 public class QuestionsByOneForm extends FormActivity implements ResponseActionDelegate, IPhotoResultDelegate {
@@ -232,7 +233,7 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
 
     private static final int FILE_SELECT_CODE = 0;
 
-    private String pickedFileName = "";
+    private String pickedFileUUID = "";
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -245,9 +246,9 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
                     // Get the path
                     String path = FileUtils.getPath(this, uri);
                     Log.d(TAG, "File Path: " + path);
-
+                    pickedFileUUID = UUID.randomUUID().toString();
                     Send(path);
-                    pickedFileName = path;
+
 
                     // Get the file instance
                     // File file = new File(path);
@@ -269,7 +270,7 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
 
                         MultipartLargeUtility multipart = new MultipartLargeUtility("http://zyght.com/upload.php", "UTF-8",useCSRF);
 
-                        multipart.addFormField("param1","value");
+                        multipart.addFormField("fileUUID",pickedFileUUID);
 
                         multipart.addFilePart("file",new File(path));
                         List<String> response = multipart.finish();
@@ -290,7 +291,7 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
         thread.start();
     }
 
-    public String getPickedFileName(){
-        return pickedFileName;
+    public String getPickedFileUUID(){
+        return pickedFileUUID;
     }
 }

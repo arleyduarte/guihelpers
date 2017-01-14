@@ -82,7 +82,7 @@ public class FormPickFile extends FormWidget
 	
 	@Override
 	public String getValue(){
-		return ContextPicker.getInstance().getPickFileResultDelegate().getPickedFileName();
+		return ContextPicker.getInstance().getPickFileResultDelegate().getPickedFileUUID();
 	}
 	
 	@Override
