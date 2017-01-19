@@ -8,6 +8,7 @@ package com.amdp.android.survey.apihandler;
 
 
 import com.amdp.android.guihelpers.R;
+import com.amdp.android.guihelpers.utils.GlobalVariables;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
 import com.amdp.android.survey.entities.SurveyRegister;
@@ -65,6 +66,14 @@ public class RaiseSurveyAPIHandler extends APIResourceHandler {
         params.put("userId", surveyRegister.getUserId());
         params.put("survey", surveyRegister.getSurvey());
         params.put("name", surveyRegister.getParameters());
+
+
+        HashMap<String, String> additional =  GlobalVariables.getInstance().getVariables(GlobalVariables.SURVEY_MODULE);
+
+        if(!additional.isEmpty()){
+            params.putAll(additional);
+        }
+
         return params;
     }
 

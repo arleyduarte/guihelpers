@@ -1,10 +1,11 @@
 <resources>
     <string name="BASE_SERVICE_URL">http://estudiobbd.com/mineducacion/codeigniter/</string>
-    <string name="UPLOAD_FILE_URL">http://zyght.com/upload.php</string>
+    <string name="UPLOAD_FILE_URL">http://estudiobbd.com/mineducacion/upload.php</string>
+
     <string name="PREFS_NAME">PREFS_NAME</string>
 
     <string name="email">Usuario</string>
-    <string name="password">Contraseña</string>
+    <string name="password">Contraseña http://zyght.com/upload.php</string>
     <string name="memoria">Memoria</string>
     <string name="camara">Camara</string>
     <string name="uploading_photo">Subiendo Foto</string>
@@ -16,5 +17,7 @@
     <string name="search">Buscar</string>
     <string name="surveys_tile">Encuestas</string>
     <string name="select_file">Seleccione el Archivo</string>
+    <string name="finalize">Finalizar</string>
+    <string name="thanks_for_fill_the_information">Gracias por completar la información</string>
 
 </resources>

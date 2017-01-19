@@ -14,7 +14,7 @@
         android:gravity="center"
         android:textColor="@android:color/darker_gray"
         android:background="@android:color/white"
-        android:text="La información se agréo correctamente"
+        android:text="La información se agregó correctamente"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Gracias por completar la información, si desea agregar más participantes presion el botón continuar, de lo contrario finalice la encuesta."
+        android:text="@string/thanks_for_fill_the_information"
          />
 
     <LinearLayout
@@ -35,15 +35,10 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonGallery"
+            android:id="@+id/buttonOk"
             style="@style/action_button"
-            android:text="Continuar" />
+            android:text="@string/finalize" />
 
-        <Button
-            android:id="@+id/buttonCamera"
-            style="@style/action_button"
-            android:background="@color/corporate_color"
-            android:text="Finalizar" />
     </LinearLayout>
 
 </LinearLayout>
