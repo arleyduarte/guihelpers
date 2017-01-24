@@ -120,7 +120,7 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
         }
 
 
-       
+
     }
 
     private String surveyJsonAdapter(String name, String jsonQuestion) {

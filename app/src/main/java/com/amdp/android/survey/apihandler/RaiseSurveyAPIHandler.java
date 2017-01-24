@@ -9,8 +9,10 @@ package com.amdp.android.survey.apihandler;
 
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.guihelpers.utils.GlobalVariables;
+import com.amdp.android.network.APIRequest;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
+import com.amdp.android.network.PendingRequestManager;
 import com.amdp.android.survey.entities.SurveyRegister;
 
 
@@ -25,9 +27,12 @@ public class RaiseSurveyAPIHandler extends APIResourceHandler {
 
     private SurveyRegister surveyRegister;
 
+    private APIRequest apiRequest;
+
 
     public RaiseSurveyAPIHandler(SurveyRegister surveyRegister) {
         this.surveyRegister = surveyRegister;
+        this.apiRequest = new APIRequest();
 
     }
 
@@ -38,19 +43,12 @@ public class RaiseSurveyAPIHandler extends APIResourceHandler {
 
         if (apiResponse.getStatus().isSuccess()) {
 
-            if (surveyRegister.getEntityId() != null && surveyRegister.getEntityId().length() > 0) {
-                getResponseActionDelegate().didSuccessfully(surveyRegister.getEntityId());
-            } else {
-                getResponseActionDelegate().didSuccessfully(apiResponse.getRawResponse());
-            }
+            getResponseActionDelegate().didSuccessfully(apiResponse.getRawResponse());
 
 
         } else {
 
-            surveyRegister.setEntityId(String.valueOf(System.currentTimeMillis()));
-
-            //TODO: Service
-            //PendingRegistersStack.getStack().push(surveyRegister);
+            PendingRequestManager.getInstance().push(apiRequest);
             getResponseActionDelegate().didNotSuccessfully("La encuesta fue guardada y se enviara cuando exista conexión a red");
 
         }
@@ -74,12 +72,17 @@ public class RaiseSurveyAPIHandler extends APIResourceHandler {
             params.putAll(additional);
         }
 
+
+        apiRequest.setParams(params);
         return params;
     }
 
     @Override
     public String getServiceURL() {
-        return getContext().getResources().getString(R.string.BASE_SERVICE_URL)+ "/survey";
+
+        String fullURl = getContext().getResources().getString(R.string.BASE_SERVICE_URL)+ "/survey";
+        apiRequest.setFullURL(fullURl);
+        return fullURl;
     }
 
 

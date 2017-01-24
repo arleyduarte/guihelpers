@@ -26,4 +26,5 @@ dependencies {
     compile 'com.github.arleyduarte:android-entity:1.1.1'
     compile 'com.github.satyan:sugar:1.5'
     compile 'com.github.arleyduarte:android-network:0.9.+'
+    compile 'com.google.code.gson:gson:2.2.4'
 }

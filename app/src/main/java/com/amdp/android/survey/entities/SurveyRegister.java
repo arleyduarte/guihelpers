@@ -14,7 +14,7 @@ import com.orm.SugarRecord;
 /**
  * Created by Arley Mauricio Duarte
  */
-public class SurveyRegister extends SugarRecord implements APIEntity {
+public class SurveyRegister implements APIEntity {
 
 
 
