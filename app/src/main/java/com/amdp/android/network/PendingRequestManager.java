@@ -56,7 +56,7 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
         {
             getResponseActionDelegate().didSuccessfully(apiResponse.getRawResponse());
         }else {
-            getResponseActionDelegate().didSuccessfully(apiResponse.getRawResponse());
+            getResponseActionDelegate().didNotSuccessfully(apiResponse.getRawResponse());
         }
     }
 
