@@ -1,20 +1,11 @@
 package com.amdp.android.survey.activities;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import com.amdp.android.entity.APIEntity;
-import com.amdp.android.entity.BasicEntityBLL;
 import com.amdp.android.guihelpers.EntityListActivity;
 import com.amdp.android.guihelpers.R;
-import com.amdp.android.survey.entities.Survey;
+import com.amdp.android.models.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
 
 import java.util.ArrayList;

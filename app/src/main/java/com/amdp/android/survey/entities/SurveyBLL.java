@@ -4,6 +4,7 @@ package com.amdp.android.survey.entities;
 
 import com.amdp.android.entity.APIEntity;
 import com.amdp.android.entity.EntityBLL;
+import com.amdp.android.models.Survey;
 
 import java.util.ArrayList;
 import java.util.List;

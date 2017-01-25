@@ -7,7 +7,7 @@ import android.util.Log;
 
 import com.amdp.android.guihelpers.utils.FileUtils;
 import com.amdp.android.survey.activities.SurveysListActivity;
-import com.amdp.android.survey.entities.Survey;
+import com.amdp.android.models.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
 
 import org.json.JSONArray;

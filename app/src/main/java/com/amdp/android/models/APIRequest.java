@@ -1,7 +1,8 @@
-package com.amdp.android.network;
+package com.amdp.android.models;
 
 
 import com.amdp.android.entity.APIEntity;
+import com.amdp.android.network.HttpMethod;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.orm.SugarRecord;

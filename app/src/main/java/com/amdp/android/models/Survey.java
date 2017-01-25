@@ -1,4 +1,4 @@
-package com.amdp.android.survey.entities;
+package com.amdp.android.models;
 
 import com.amdp.android.entity.APIEntity;
 import com.orm.SugarRecord;

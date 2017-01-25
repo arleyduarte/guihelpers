@@ -12,7 +12,7 @@ import android.util.Log;
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
-import com.amdp.android.survey.entities.Survey;
+import com.amdp.android.models.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
 
 import org.json.JSONArray;

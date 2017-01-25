@@ -9,16 +9,14 @@ package com.amdp.android.survey.apihandler;
 
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.guihelpers.utils.GlobalVariables;
-import com.amdp.android.network.APIRequest;
+import com.amdp.android.models.APIRequest;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
 import com.amdp.android.network.PendingRequestManager;
 import com.amdp.android.survey.entities.SurveyRegister;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Arley Mauricio Duarte
