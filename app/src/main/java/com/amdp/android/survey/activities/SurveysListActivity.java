@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.amdp.android.entity.APIEntity;
 import com.amdp.android.guihelpers.EntityListActivity;
 import com.amdp.android.guihelpers.R;
-import com.amdp.android.models.Survey;
+import com.amdp.android.survey.entities.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
 
 import java.util.ArrayList;

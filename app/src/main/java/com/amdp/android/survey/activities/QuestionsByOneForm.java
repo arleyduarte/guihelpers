@@ -21,7 +21,7 @@ import com.amdp.android.guihelpers.utils.FileUtils;
 import com.amdp.android.network.MultipartLargeUtility;
 import com.amdp.android.network.ResponseActionDelegate;
 import com.amdp.android.survey.apihandler.RaiseSurveyAPIHandler;
-import com.amdp.android.models.Survey;
+import com.amdp.android.survey.entities.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
 import com.amdp.android.survey.entities.SurveyRegister;
 

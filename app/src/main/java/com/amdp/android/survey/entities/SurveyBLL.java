@@ -4,7 +4,6 @@ package com.amdp.android.survey.entities;
 
 import com.amdp.android.entity.APIEntity;
 import com.amdp.android.entity.EntityBLL;
-import com.amdp.android.models.Survey;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,21 +83,11 @@ public class SurveyBLL extends EntityBLL {
         return apiEntity;
     }
 
-    public void restore() {
-        List<Survey> localSurveys = Survey.listAll(Survey.class);
-        for (Survey survey : localSurveys) {
-            addSurvey(survey);
-        }
-    }
 
     public void clear() {
         surveys.clear();
 
-        try{
-            Survey.deleteAll(Survey.class);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+
 
     }
 
@@ -118,7 +107,7 @@ public class SurveyBLL extends EntityBLL {
                         Survey survey = (Survey) aux;
 
                         try {
-                            survey.save();
+
                         } catch (Exception ex) {
 
                         }

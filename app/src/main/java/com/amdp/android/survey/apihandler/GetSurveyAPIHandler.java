@@ -6,13 +6,15 @@
 package com.amdp.android.survey.apihandler;
 
 
+import android.text.TextUtils;
 import android.util.Log;
 
 
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
-import com.amdp.android.models.Survey;
+import com.amdp.android.network.PendingRequestManager;
+import com.amdp.android.survey.entities.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
 
 import org.json.JSONArray;
@@ -43,9 +45,18 @@ public class GetSurveyAPIHandler extends APIResourceHandler {
     public void handlerAPIResponse(APIResponse apiResponse) {
 
 
+        if(apiResponse.getStatus().isSuccess()) {
+            PendingRequestManager.getInstance().saveSuccessfullRespone(getContext(), TAG, apiResponse);
+        }
+        else{
+
+            apiResponse = PendingRequestManager.getInstance().getLastSuccessfullRespone(getContext(), TAG);
+        }
+
+
         SurveyBLL surveyBLL = SurveyBLL.getInstance();
 
-        if (apiResponse.getStatus().isSuccess()) {
+        if (!TextUtils.isEmpty(apiResponse.getRawResponse())) {
             surveyBLL.clear();
 
             try {
@@ -80,7 +91,7 @@ public class GetSurveyAPIHandler extends APIResourceHandler {
 
         } else {
 
-            surveyBLL.restore();
+
             getResponseActionDelegate().didSuccessfully("");
 
 

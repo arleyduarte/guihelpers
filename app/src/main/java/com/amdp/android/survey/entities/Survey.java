@@ -1,4 +1,4 @@
-package com.amdp.android.models;
+package com.amdp.android.survey.entities;
 
 import com.amdp.android.entity.APIEntity;
 import com.orm.SugarRecord;
@@ -6,7 +6,7 @@ import com.orm.SugarRecord;
 /**
  * Created by arley on 9/24/16.
  */
-public class Survey extends SugarRecord implements APIEntity {
+public class Survey  implements APIEntity {
     private String entityId = "";
     private String survey = "";
     private String name = "";
