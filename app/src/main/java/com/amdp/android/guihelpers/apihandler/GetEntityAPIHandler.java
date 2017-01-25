@@ -6,6 +6,7 @@
 package com.amdp.android.guihelpers.apihandler;
 
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.amdp.android.entity.BasicEntity;
@@ -13,6 +14,7 @@ import com.amdp.android.entity.BasicEntityBLL;
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
+import com.amdp.android.network.PendingRequestManager;
 
 
 import org.json.JSONArray;
@@ -28,7 +30,7 @@ import java.util.HashMap;
 public class GetEntityAPIHandler extends APIResourceHandler {
 
     private String userId = "";
-    private static final String TAG = GetEntityAPIHandler.class.getSimpleName();
+    protected static  String TAG = GetEntityAPIHandler.class.getSimpleName();
     static String message = "";
 
 
@@ -42,10 +44,16 @@ public class GetEntityAPIHandler extends APIResourceHandler {
     @Override
     public void handlerAPIResponse(APIResponse apiResponse) {
 
+        if(apiResponse.getStatus().isSuccess()) {
+            PendingRequestManager.getInstance().saveSuccessfullRespone(getContext(), TAG, apiResponse);
+        }
+        else{
+
+            apiResponse = PendingRequestManager.getInstance().getLastSuccessfullRespone(getContext(), TAG);
+        }
 
 
-
-        if (apiResponse.getStatus().isSuccess()) {
+        if (!TextUtils.isEmpty(apiResponse.getRawResponse())) {
             BasicEntityBLL entityBLL =  BasicEntityBLL.getInstance();
 
             entityBLL.clear();
