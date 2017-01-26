@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.amdp.android.models.APIRequest;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -76,6 +77,12 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
         push(currentRequest);
     }
 
+
+    @Override
+    public HashMap<String, String> getBodyParams() {
+
+        return currentRequest.getParams();
+    }
 
     public APIResponse getLastSuccessfullRespone(Context context, String apiHandlerName){
         APIResponse response = new APIResponse();
