@@ -20,6 +20,7 @@ import com.amdp.android.guihelpers.photo.ContextPicker;
 import com.amdp.android.guihelpers.utils.FileUtils;
 import com.amdp.android.network.MultipartLargeUtility;
 import com.amdp.android.network.ResponseActionDelegate;
+import com.amdp.android.network.Session;
 import com.amdp.android.survey.apihandler.RaiseSurveyAPIHandler;
 import com.amdp.android.survey.entities.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
@@ -174,9 +175,8 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
         SurveyRegister sr = new SurveyRegister();
         sr.setSurvey(jsonResponses.toString());
 
-        SharedPreferences settings = getSharedPreferences(getBaseContext().getResources().getString(R.string.PREFS_NAME), 0);
-        String userId = settings.getString("userId", "");
-        sr.setUserId(userId);
+;
+        sr.setUserId(Session.getInstance().getAccessToken());
         sr.setParameters(currentSurvey.getName());
 
         RaiseSurveyAPIHandler rh = new RaiseSurveyAPIHandler(sr);
