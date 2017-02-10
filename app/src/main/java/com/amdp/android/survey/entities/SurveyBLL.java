@@ -54,7 +54,7 @@ public class SurveyBLL extends EntityBLL {
 
         ArrayList<Survey> auxSurveys = new ArrayList<Survey>();
 
-        for (Survey survey : auxSurveys
+        for (Survey survey : surveys
              ) {
 
 
