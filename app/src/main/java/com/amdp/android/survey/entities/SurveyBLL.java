@@ -5,6 +5,8 @@ package com.amdp.android.survey.entities;
 import com.amdp.android.entity.APIEntity;
 import com.amdp.android.entity.EntityBLL;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +50,22 @@ public class SurveyBLL extends EntityBLL {
         return surveys;
     }
 
+    public ArrayList<Survey> getSurveysToApply(String applyToId) {
+
+        ArrayList<Survey> auxSurveys = new ArrayList<Survey>();
+
+        for (Survey survey : auxSurveys
+             ) {
+
+
+            if (survey.surveyIsApplicable(applyToId)) {
+                auxSurveys.add(survey);
+            }
+        }
+
+        return auxSurveys;
+    }
+
     public void setSurveys(ArrayList<Survey> surveys) {
         this.surveys = surveys;
     }
@@ -84,12 +102,18 @@ public class SurveyBLL extends EntityBLL {
     }
 
 
+
     public void clear() {
         surveys.clear();
 
 
 
     }
+
+
+
+
+
 
     private static boolean isSaving = false;
 

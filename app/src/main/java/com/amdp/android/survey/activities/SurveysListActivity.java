@@ -1,6 +1,7 @@
 package com.amdp.android.survey.activities;
 
 import android.content.Intent;
+import android.text.TextUtils;
 
 import com.amdp.android.entity.APIEntity;
 import com.amdp.android.guihelpers.EntityListActivity;
@@ -18,13 +19,21 @@ public class SurveysListActivity extends EntityListActivity {
     private List<Survey> surveys;
 
     protected String surveysTitle = "";
+    protected String surveysApplyToId = "";
 
 
     @Override
     public void onResume(){
         super.onResume();
 
-        surveys = SurveyBLL.getInstance().getSurveys();
+
+        if(TextUtils.isEmpty(surveysApplyToId)){
+            surveys = SurveyBLL.getInstance().getSurveys();
+        }else{
+            surveys = SurveyBLL.getInstance().getSurveysToApply(surveysApplyToId);
+        }
+
+
         ArrayList<APIEntity> vItems= new ArrayList<APIEntity>();
         for(Survey survey : surveys){
             vItems.add(survey);

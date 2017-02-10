@@ -114,6 +114,7 @@ public class GetSurveyAPIHandler extends APIResourceHandler {
                 sv.setName(name);
                 sv.setSurvey(apiResponse);
                 sv.setEntityId(name);
+                sv.setApplyTo(meta.getString("applyTo").trim());
 
             } catch (JSONException e) {
 
