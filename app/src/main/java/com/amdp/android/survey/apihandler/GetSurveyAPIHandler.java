@@ -13,7 +13,8 @@ import android.util.Log;
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
-import com.amdp.android.network.PendingRequestManager;
+
+import com.amdp.android.services.PendingRequestManager;
 import com.amdp.android.survey.entities.Survey;
 import com.amdp.android.survey.entities.SurveyBLL;
 

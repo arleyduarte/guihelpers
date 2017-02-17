@@ -3,7 +3,7 @@
  * All rights reserved.
  ******************************************************************************/
 
-package com.amdp.android.guihelpers.apihandler;
+package com.amdp.android.apihandler;
 
 
 import android.text.TextUtils;
@@ -14,7 +14,7 @@ import com.amdp.android.entity.BasicEntityBLL;
 import com.amdp.android.guihelpers.R;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
-import com.amdp.android.network.PendingRequestManager;
+import com.amdp.android.services.PendingRequestManager;
 
 
 import org.json.JSONArray;

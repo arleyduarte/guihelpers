@@ -12,7 +12,8 @@ import com.amdp.android.guihelpers.utils.GlobalVariables;
 import com.amdp.android.models.APIRequest;
 import com.amdp.android.network.APIResourceHandler;
 import com.amdp.android.network.APIResponse;
-import com.amdp.android.network.PendingRequestManager;
+
+import com.amdp.android.services.PendingRequestManager;
 import com.amdp.android.survey.entities.SurveyRegister;
 
 
