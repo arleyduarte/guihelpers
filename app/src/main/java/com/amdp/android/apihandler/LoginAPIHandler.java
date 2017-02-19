@@ -72,7 +72,6 @@ public class LoginAPIHandler extends APIResourceHandler {
             JSONObject object = new JSONObject(apiResponse);
             token = object.getString("access_token");
 
-
         } catch (JSONException e) {
 
         } finally {
