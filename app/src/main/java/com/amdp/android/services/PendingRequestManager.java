@@ -53,7 +53,7 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
         }
     }
 
-    private void sendRequest(APIRequest request){
+    private  synchronized  void sendRequest(APIRequest request){
         setShowWaitingDialog(false);
         setRequestHandle(this, null);
 
