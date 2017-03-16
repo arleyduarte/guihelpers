@@ -20,6 +20,8 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
     private static final String TAG = "PendingRequestManager";
     private APIRequest currentRequest;
     private static PendingRequestManager ourInstance = new PendingRequestManager();
+    private   List<APIRequest> apiRequests;
+    private int popIndex = 0;
 
     public static PendingRequestManager getInstance() {
         return ourInstance;
@@ -40,16 +42,24 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
 
 
     public void  pop(){
-        List<APIRequest> apiRequests = APIRequest.listAll(APIRequest.class);
+        apiRequests = APIRequest.listAll(APIRequest.class);
 
+        popNext();
 
+    }
 
-        for(APIRequest request : apiRequests){
+    private void popNext(){
+        if(apiRequests.size() > popIndex){
+
+            APIRequest request =  apiRequests.get(popIndex);
+
             Log.i(TAG, "pop:"+apiRequests);
             request.restore();
             request.delete();
             currentRequest = request;
             sendRequest(currentRequest);
+
+            popIndex++;
         }
     }
 
@@ -78,11 +88,13 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
     @Override
     public void didSuccessfully(String s) {
         Log.i(TAG, "didSuccessfully:"+s);
+        popNext();
     }
 
     @Override
     public void didNotSuccessfully(String s) {
         push(currentRequest);
+        popNext();
     }
 
 
