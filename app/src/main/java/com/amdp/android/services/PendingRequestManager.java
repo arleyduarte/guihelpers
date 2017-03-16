@@ -26,7 +26,13 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
     }
 
     public void  push(APIRequest apiRequest){
-        apiRequest.serialized();
+        APIRequest ap = new APIRequest();
+        ap.setFullURL(apiRequest.getFullURL());
+        ap.setMethod(apiRequest.getMethod());
+        ap.setParams(apiRequest.getParams());
+        ap.setService(apiRequest.getService());
+        ap.setEntityId(apiRequest.getEntityId());
+        ap.serialized();
 
     }
 
