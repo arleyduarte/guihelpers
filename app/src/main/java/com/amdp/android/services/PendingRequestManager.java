@@ -53,7 +53,7 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
 
             APIRequest request =  apiRequests.get(popIndex);
 
-            Log.i(TAG, "pop:"+apiRequests);
+            Log.i(TAG, "pop :"+popIndex+apiRequests);
             request.restore();
             request.delete();
             currentRequest = request;
