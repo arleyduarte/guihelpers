@@ -34,6 +34,8 @@ public class PendingRequestManager extends APIResourceHandler implements Respons
         ap.setEntityId(apiRequest.getEntityId());
         ap.serialized();
 
+        Log.i(TAG, "ap:"+ap.getParams().toString());
+
     }
 
 
