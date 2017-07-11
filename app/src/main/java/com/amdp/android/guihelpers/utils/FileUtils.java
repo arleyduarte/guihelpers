@@ -3,6 +3,7 @@ package com.amdp.android.guihelpers.utils;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.provider.MediaStore;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,7 +42,7 @@ public class FileUtils {
 
             try {
                 cursor = context.getContentResolver().query(uri, projection, null, null, null);
-                int column_index = cursor.getColumnIndexOrThrow("_data");
+                int column_index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
                 if (cursor.moveToFirst()) {
                     path=  cursor.getString(column_index);
                 }
