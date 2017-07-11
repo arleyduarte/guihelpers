@@ -53,6 +53,10 @@ public class FileUtils {
             path= uri.getPath();
         }
 
+        if(path == null){
+            path= uri.getPath();
+        }
+
        return path;
     }
 }
