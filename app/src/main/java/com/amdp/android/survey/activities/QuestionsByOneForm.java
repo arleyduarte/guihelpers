@@ -253,10 +253,20 @@ public class QuestionsByOneForm extends FormActivity implements ResponseActionDe
                     Uri uri = data.getData();
 
                     Log.d(TAG, "File Uri: " + uri.toString());
+
+
+
                     // Get the path
                     String path = FileUtils.getPath(this, uri);
+                    String extension = ".jpg";
+
+                    try{
+                        extension = "."+path.substring(path.lastIndexOf("."));
+                    }catch (Exception e){
+
+                    }
                     Log.d(TAG, "File Path: " + path);
-                    pickedFileUUID = UUID.randomUUID().toString();
+                    pickedFileUUID = UUID.randomUUID().toString()+extension;
                     Send(path);
 
 

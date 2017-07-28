@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class GlobalVariables {
 
-    public static final String SURVEY_MODULE = "SURVEY_MODULE.";
+    public static final String SURVEY_MODULE = "SURVEY_MODULE";
 
     private static GlobalVariables ourInstance = new GlobalVariables();
 
